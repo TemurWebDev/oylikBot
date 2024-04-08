@@ -1,3 +1,4 @@
+from . import chac_sub
 from . import help
 from . import start
 from . import baza

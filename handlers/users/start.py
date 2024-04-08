@@ -6,10 +6,13 @@ from aiogram.dispatcher.filters.state import StatesGroup, State
 from aiogram.dispatcher import FSMContext
 from keyboards.default.key import tel,BoshMenu
 from keyboards.inline.inlinekey import tasdiqlash
+from aiogram.types import InlineKeyboardMarkup,InlineKeyboardButton
+from utils.misc import subscription
 import re
 from .admin import rek_ha,rek_yoq
 from loader import dp
 from loader import bot
+from data.config import CHANNELS
 
 
 
@@ -38,6 +41,9 @@ async def start_user(message: types.Message):
         
     else:
         await message.answer(f"Kerakli bo'limni tanlang",reply_markup=BoshMenu)
+
+
+    
 
         
 
@@ -102,6 +108,33 @@ async def passport(message: types.Message, state: FSMContext):
         await message.reply("Noto'g'ri passport raqami formati. Iltimos, qaytadan kiriting.\n\nNamuna: AC1234567")
 
     
+    # user = message.from_user.id
+    # final_status = True
+    # btn = InlineKeyboardMarkup(row_width=1)
+    # for channel in CHANNELS:
+    #     status = await subscription.check(user_id=user, channel=channel)
+    #     final_status *= status
+    #     chat = await bot.get_chat(channel)
+    #     if status:
+    #         invite_link = await chat.export_invite_link()
+    #         btn.insert(InlineKeyboardButton(text=f"✅ {chat.title}", url=invite_link))
+    #     if not status:
+    #         invite_link = await chat.export_invite_link()
+    #         btn.insert(InlineKeyboardButton(text=f"❌ {chat.title}", url=invite_link))
+    # btn.add(InlineKeyboardButton(text="♻️Obunani tekshirish", callback_data="check_subs"))
+    # if final_status:
+    #     if message.from_user.id == 1363350178:
+    #         await bot.send_message(chat_id=message.from_user.id,
+    #                                    text=f"Assalomu alaykum {message.from_user.first_name} siz adminsiz",)
+    #     else:
+    #         await message.answer(f"Assalomu alaykum {message.from_user.full_name}!\n"
+    #                                  f"Botdan foydalanish uchun kerakli bo'limni tanlang!")
+    # if not final_status:
+    #     await message.answer("Botdan to'liq foydalanish uchun quyidagi kanallarga obuna bo'ling!",
+    #                              disable_web_page_preview=True, reply_markup=btn)
+
+
+
 
 
 
