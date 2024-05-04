@@ -48,14 +48,16 @@ def oylik_hisobot(user_id,oy):
         oylik_user = oylik(str(user_id),oy)
         
 
-        beriladi = f"{(oylik_user['jami_oylik'] + oylik_user['karobka_puli'] + oylik_user['bonus']) - (oylik_user['avans'] + oylik_user['ishlamagan_kun'] + oylik_user['shtraf'] + oylik_user['forma'] + oylik_user['korpa_tushak'] + oylik_user['qushimcha']) } "
+        beriladi = f"{(oylik_user['jami_oylik'] + oylik_user['karobka_puli'] + oylik_user['bonus']+ oylik_user['kpi'] ) - (oylik_user['avans'] + oylik_user['avans_plastik']+ oylik_user['ishlamagan_kun'] + oylik_user['shtraf'] + oylik_user['forma'] + oylik_user['korpa_tushak'] + oylik_user['qushimcha']) } "
 
-        msg = f"Mart oyi oylik hisobot\n"
+        msg = f"Oylik hisobot\n\n"
         msg+= f"🙎🏻‍♂️ Hodim : {oylik_user['user']['name']}\n\n"
         msg+= f"💵 Jami oylik: {oylik_user['jami_oylik']}\n"
         msg+= f"➕ Karobka puli : {oylik_user['karobka_puli']}\n"
         msg+= f"➕ Bonus : {oylik_user['bonus']}\n"
+        msg+= f"➕ KPI : {oylik_user['kpi']}\n"
         msg+= f"➖ Avans : {oylik_user['avans']}\n"
+        msg+= f"➖ Avans plastik : {oylik_user['avans_plastik']}\n"
         msg+= f"➖ Ishlamagan kun : {oylik_user['ishlamagan_kun']}\n"
         msg+= f"➖ Shtraf : {oylik_user['shtraf']}\n"
         msg+= f"➖ Forma : {oylik_user['forma']}\n"
